@@ -1,16 +1,18 @@
-# Python Project Setup Guide (macOS) - Avoiding "Externally-Managed-Environment" Errors
+# Python Project Setup Guide (macOS)
 
-This guide provides a comprehensive, beginner-friendly approach to setting up Python projects on macOS, specifically addressing and avoiding the "externally-managed-environment" error.  This error makes me want to punch myself in the face everytime I see it by accident, so here's a guide for me to avoid doing that particular thing.
+This guide is intended for setting up Python projects on macOS, specifically addressing and avoiding the "externally-managed-environment" error.  This error makes me want to punch myself in the face everytime I see it by accident, so here's a guide for me to avoid doing that particular thing.
 
-**Understanding the Error**
+## "Externally-Managed-Environment" Errors
+
+### Understanding the Error
 
 The "externally-managed-environment" error occurs when you attempt to install Python packages using `pip` directly into your system's Python installation. macOS restricts modifications to this system Python for stability and security.  This certainly makes sense and I'm only /somewhat/ burned up about it.
 
-**The Solution: Virtual Environments**
+### The Solution: Virtual Environments
 
 Virtual environments create isolated Python environments, preventing conflicts and ensuring project dependencies are managed correctly.
 
-**Step-by-Step Instructions**
+## Step-by-Step Instructions
 
 1.  **Install Python (Recommended via Homebrew):**
 
@@ -75,7 +77,7 @@ Virtual environments create isolated Python environments, preventing conflicts a
         ```
     * Your terminal prompt will return to normal.
 
-**Key Concepts and Best Practices**
+## Key Concepts and Best Practices
 
 * **Virtual Environments:** Always use virtual environments for isolated project dependencies.
 * **`venv`:** The standard tool for creating virtual environments in Python 3.
@@ -90,16 +92,20 @@ Virtual environments create isolated Python environments, preventing conflicts a
     pip install -r requirements.txt
     ```
 
-**Example Project Workflow**
+## Example Project Workflow
 
-1.  `mkdir my_web_scraper`
-2.  `cd my_web_scraper`
-3.  `python3 -m venv venv`
-4.  `source venv/bin/activate`
-5.  `pip install requests beautifulsoup4`
-6.  `touch scraper.py`
-7.  Write your scraper code in `scraper.py`
-8.  `python scraper.py`
-9.  `deactivate`
+```bash
+mkdir my_project
+cd my_project
+# Get a venv going
+python3 -m venv venv
+source venv/bin/activate
+pip install {yourlibs}
+touch main.py
+# Now you can write your crap in `main.py`
+python main.py
+# Stop venv
+deactivate
 
-By following this guide, you can establish a clean and organized Python project setup, preventing the "externally-managed-environment" error and streamlining your Python development process.
+```
+
